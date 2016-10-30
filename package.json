@@ -1,0 +1,46 @@
+{
+  "name": "record-browser",
+  "version": "0.0.1",
+  "description": "Record all interactions in a user's browser",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "rollup -cw"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bcherny/record-browser.git"
+  },
+  "keywords": [
+    "record",
+    "browser",
+    "playback",
+    "echo",
+    "copycat",
+    "log",
+    "event",
+    "track"
+  ],
+  "author": "Boris Cherny <boris@performancejs.com> (http://performancejs.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bcherny/record-browser/issues"
+  },
+  "homepage": "https://github.com/bcherny/record-browser#readme",
+  "devDependencies": {
+    "rollup": "^0.36.3",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-watch": "^2.5.0",
+    "tslint": "^3.15.1",
+    "tslint-react": "^1.1.0",
+    "typescript": "^2.0.6"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}

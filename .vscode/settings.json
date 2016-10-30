@@ -1,0 +1,20 @@
+{
+  "css.lint.zeroUnits": "warning",
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.wrappingColumn": 120,
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "sass.lint.zeroUnits": "warning",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/*.js": true
+  },
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "typescript.tsdk": "./node_modules/typescript/lib"
+}
