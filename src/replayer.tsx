@@ -41,8 +41,6 @@ export class Replayer extends React.Component<Props, State> {
 
   step(session: RecorderSession, resolve: () => void) {
 
-    if (!session.length) return resolve()
-
     const s = session[0]
 
     // update fake cursor position?
@@ -59,7 +57,12 @@ export class Replayer extends React.Component<Props, State> {
     const event = new (Class as any)(s.type, s)
     hydrateTarget(document, s.target).dispatchEvent(event)
 
-    setTimeout(() => this.step(session.slice(1), resolve), STEP_DELAY)
+    if (session.length === 1) return resolve()
+
+    setTimeout(
+      () => this.step(session.slice(1), resolve),
+      (session[1].timeStamp - s.timeStamp) + STEP_DELAY
+    )
   }
 
   render() {
