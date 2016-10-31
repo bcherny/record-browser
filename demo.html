@@ -40,6 +40,8 @@
       <li>Foo</li>
     </ul>
 
+    <input type="text" />
+
     <button id="stop">Stop</button>
     <button id="replay">Replay</button>
 
@@ -48,10 +50,9 @@
       window.recordBrowser.startRecording(document)
 
       let session
-      document.querySelector('#stop').addEventListener('click', () => {
+      document.querySelector('#stop').addEventListener('click', () =>
         session = window.recordBrowser.stopRecording()
-        console.log(session)
-      })
+      )
 
       document.querySelector('#replay').addEventListener('click', () =>
         window.recordBrowser.replay(session)

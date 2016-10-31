@@ -15,7 +15,11 @@ const typeToConstructor: { [eventType: string]: SupportedEvent } = {
   wheel: WheelEvent,
   mouseleave: MouseEvent,
   mouseout: MouseEvent,
-  select: MouseEvent
+  select: MouseEvent,
+  focus: FocusEvent,
+  blur: FocusEvent,
+  focusin: FocusEvent,
+  focusout: FocusEvent
 }
 
 export function eventFromType(eventType: string): SupportedEvent {

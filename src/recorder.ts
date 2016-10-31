@@ -9,7 +9,10 @@ interface State {
  * TODO: do we need to dedupe keyup+keypress?
  * @see https://developer.mozilla.org/en-US/docs/Web/Events
  */
-const EVENTS = ['keydown', 'keypress', 'keyup', 'mouseenter', 'mouseover', 'mousemove', 'mousedown', 'mouseup', 'click', 'dblclick', 'contextmenu', 'wheel', 'mouseleave', 'mouseout', 'select', 'scroll']
+const EVENTS = [
+  'keydown', 'keypress', 'keyup',
+  'mouseenter', 'mouseover', 'mousemove', 'mousedown', 'mouseup', 'click', 'dblclick', 'contextmenu', 'wheel', 'mouseleave', 'mouseout', 'select', 'scroll',
+  'focus', 'blur', 'focusin', 'focusout']
 
 export class Recorder {
 
@@ -26,7 +29,7 @@ export class Recorder {
     return this.state.events
   }
 
-  private logEvent(e: MouseEvent | WheelEvent) {
+  private logEvent(e: KeyboardEvent | MouseEvent | WheelEvent) {
     const newEvent = e instanceof WheelEvent
       ? {
         deltaMode: e.deltaMode,
@@ -39,8 +42,15 @@ export class Recorder {
         // wheelDelta: e.wheelDelta,
         // wheelDeltaX: e.wheelDeltaX,
         // wheelDeltaY: e.wheelDeltaY
+      } : e instanceof KeyboardEvent ? {
+        keyCode: e.keyCode,
+        which: e.which
       } : {}
     this.state.events = this.state.events.concat(Object.assign(newEvent, {
+      altKey: e.altKey,
+      ctrlKey: e.ctrlKey,
+      metaKey: e.metaKey,
+      shiftKey: e.shiftKey,
       clientX: e.clientX,
       clientY: e.clientY,
       layerX: e.layerX,
