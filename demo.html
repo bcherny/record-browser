@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>record-browser demo</title>
+    <style>
+      * { border: 0; margin: 0; padding: 0; }
+      body {
+        font: 400 18px/28px "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="./src/components/FakeCursor.css" />
+  </head>
+  <body>
+    <h1>A title</h1>
+    <h2>A subtitle</h2>
+    <p>Some text</p>
+    <button id="myButton">A button</button>
+    <ul style="height: 100px; overflow: auto; width: 200px;">
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+      <li>Foo</li>
+    </ul>
+
+    <button id="stop">Stop</button>
+    <button id="replay">Replay</button>
+
+    <script src="./dist/record-browser.js"></script>
+    <script>
+      window.recordBrowser.startRecording(document)
+
+      let session
+      document.querySelector('#stop').addEventListener('click', () => {
+        session = window.recordBrowser.stopRecording()
+        console.log(session)
+      })
+
+      document.querySelector('#replay').addEventListener('click', () =>
+        window.recordBrowser.replay(session)
+      )
+    </script>
+  </body>
+</html>
